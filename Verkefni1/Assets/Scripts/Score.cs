@@ -2,11 +2,12 @@
 using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
+    //public breytur fyrir player og text Score
     public Transform player;
     public Text scoreText;
-    // Update is called once per frame
     void Update()
     {
+        //bætir við score
         scoreText.text = player.position.z.ToString("0");
     }
 }

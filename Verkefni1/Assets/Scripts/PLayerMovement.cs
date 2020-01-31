@@ -2,6 +2,7 @@
 
 public class PLayerMovement : MonoBehaviour
 {
+    // breytur fyrir Rigid body og force áfram og á aftur á bak
     public Rigidbody rb;
     public float forwardForce = 2000f;
     public float sidewaysForce = 500f; 
@@ -11,12 +12,12 @@ public class PLayerMovement : MonoBehaviour
         
 
     }
-    // Marked FixedUpdate because it alters physiscs
+    // FixedUpdate breytir eðlisfræðinni
     void FixedUpdate()
     {
-        // add force of 2000 on the z-axis
+        // bæti við force áfram
         rb.AddForce(0, 0, forwardForce * Time.deltaTime);
-
+        //if setningar ef það er ýtt á takka og bætir við force á þá átt
         if ( Input.GetKey("d") ) 
         {
             rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
@@ -25,6 +26,7 @@ public class PLayerMovement : MonoBehaviour
         {
             rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
+        //ef player hefur dottið af platforms
         if (rb.position.y < -1f)
         {
             FindObjectOfType<GameManager>().EndGame();

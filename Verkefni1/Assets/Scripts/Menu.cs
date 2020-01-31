@@ -5,6 +5,7 @@ public class Menu : MonoBehaviour
 {
     public void StartGame ()
     {
+        //loadar fyrsta Leveli
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
